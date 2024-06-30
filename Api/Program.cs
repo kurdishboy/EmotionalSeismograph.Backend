@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+using Api.DependencyRegistrations;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api;
@@ -19,10 +19,7 @@ public class Program
         builder.Services.AddDbContext<ApplicationDbContext>(
             options => options.UseInMemoryDatabase("AppDb"));
 
-        builder.Services.AddAuthorization();
-
-        builder.Services.AddIdentityApiEndpoints<IdentityUser>()
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+        builder.Services.AddMicrosoftIdentity();
 
         var app = builder.Build();
 
@@ -35,9 +32,7 @@ public class Program
 
         app.UseHttpsRedirection();
 
-        app.UseAuthorization();
-
-        app.MapIdentityApi<IdentityUser>();
+        app.UseMicrosoftIdentity();
 
         var summaries = new[]
         {
