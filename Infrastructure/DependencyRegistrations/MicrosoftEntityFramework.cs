@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Api.DependencyRegistrations;
+namespace Infrastructure.DependencyRegistrations;
 
-public static class MicrosoftEntityFramework
+internal static class MicrosoftEntityFramework
 {
     public static IServiceCollection AddMicrosoftEntityFramework(this IServiceCollection services)
     {

@@ -1,4 +1,6 @@
 using Api.DependencyRegistrations;
+using Infrastructure;
+using Infrastructure.DependencyRegistrations;
 
 namespace Api;
 
@@ -15,7 +17,7 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        builder.Services.AddMicrosoftEntityFramework();
+        builder.Services.UseInfrastructure();
         builder.Services.AddMicrosoftIdentity();
 
         var app = builder.Build();

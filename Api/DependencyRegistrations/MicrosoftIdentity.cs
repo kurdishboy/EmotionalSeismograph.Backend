@@ -1,5 +1,5 @@
 using Domain.Models;
-using Microsoft.AspNetCore.Identity;
+using Infrastructure;
 
 namespace Api.DependencyRegistrations;
 
