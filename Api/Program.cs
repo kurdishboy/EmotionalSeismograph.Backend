@@ -1,5 +1,4 @@
 using Api.DependencyRegistrations;
-using Microsoft.EntityFrameworkCore;
 
 namespace Api;
 
@@ -16,9 +15,7 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        builder.Services.AddDbContext<ApplicationDbContext>(
-            options => options.UseInMemoryDatabase("AppDb"));
-
+        builder.Services.AddMicrosoftEntityFramework();
         builder.Services.AddMicrosoftIdentity();
 
         var app = builder.Build();
