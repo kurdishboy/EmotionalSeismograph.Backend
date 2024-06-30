@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api;
@@ -20,6 +21,9 @@ public class Program
 
         builder.Services.AddAuthorization();
 
+        builder.Services.AddIdentityApiEndpoints<IdentityUser>()
+            .AddEntityFrameworkStores<ApplicationDbContext>();
+        
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
