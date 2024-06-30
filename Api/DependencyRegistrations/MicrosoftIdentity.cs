@@ -1,3 +1,4 @@
+using Domain.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace Api.DependencyRegistrations;
@@ -8,7 +9,7 @@ public static class MicrosoftIdentity
     {
         services.AddAuthorization();
 
-        services.AddIdentityApiEndpoints<IdentityUser>()
+        services.AddIdentityApiEndpoints<User>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
         return services;
@@ -19,7 +20,7 @@ public static class MicrosoftIdentity
         if (app is null) return app;
 
         app.UseAuthorization();
-        app.MapIdentityApi<IdentityUser>();
+        app.MapIdentityApi<User>();
 
         return app;
     }
