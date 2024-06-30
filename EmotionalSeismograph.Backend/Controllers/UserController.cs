@@ -37,7 +37,7 @@ namespace EmotionalSeismograph.Backend.Controllers
         }
 
         [HttpPost("createSpace")]
-        public async Task<IActionResult> createUser(Space space)
+        public async Task<IActionResult> createSpace(Space space)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +59,6 @@ namespace EmotionalSeismograph.Backend.Controllers
             }
             else
             {
-
                 return BadRequest(new CreateResponse(null, StatusCodes.Status400BadRequest, ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList()));
             }
         }
@@ -83,7 +82,6 @@ namespace EmotionalSeismograph.Backend.Controllers
             }
             else
             {
-
                 return BadRequest(new CreateResponse(null, StatusCodes.Status400BadRequest, ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToList()));
             }
         }
