@@ -23,7 +23,7 @@ public class Program
 
         builder.Services.AddIdentityApiEndpoints<IdentityUser>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
-        
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -36,6 +36,8 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
+
+        app.MapIdentityApi<IdentityUser>();
 
         var summaries = new[]
         {
