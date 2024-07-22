@@ -1,4 +1,4 @@
-using Api.DependencyRegistrations;
+using Application;
 using Infrastructure;
 
 namespace Api;
@@ -16,8 +16,9 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        builder.Services.UseInfrastructure();
-        builder.Services.AddMicrosoftIdentity();
+        builder.Services.AddApplication();
+        builder.Services.AddInfrastructure();
+        builder.Services.AddControllers();
 
         var app = builder.Build();
 
@@ -30,7 +31,9 @@ public class Program
 
         app.UseHttpsRedirection();
 
-        app.UseMicrosoftIdentity();
+        app.UseInfrastructure();
+
+        app.MapControllers();
 
         app.Run();
     }
